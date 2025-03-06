@@ -1,0 +1,119 @@
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #10b981;
+    --background-dark: #111827;
+    --background-light: #f3f4f6;
+    --text-dark: #e5e7eb;
+    --text-light: #1f2937;
+    --accent-color: #f59e0b;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light theme overrides */
+body.light-theme {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+body.light-theme .viz-container,
+body.light-theme .algorithm-select,
+body.light-theme .array-size-value,
+body.light-theme .speed-value {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .algorithm-description {
+    background-color: #f3f4f6;
+}
+
+/* Gradient text for headers */
+.text-gradient {
+    background: linear-gradient(90deg, #4f46e5, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Bar styling */
+.bar {
+    transition: height 0.3s ease, background-color 0.2s;
+    margin: 0 1px;
+    border-radius: 2px 2px 0 0;
+}
+
+/* Active state for visualization mode buttons */
+.visualization-modes button.active {
+    background-color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Dot styling for scatter view */
+.dot {
+    border-radius: 50%;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+/* Circle view container */
+.circle-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease;
+}
+
+/* Animation for swap */
+@keyframes swap {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.swapping {
+    animation: swap 0.5s ease;
+}
+
+/* Step explanation box */
+#step-explanation {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--accent-color);
+    max-width: 300px;
+    z-index: 10;
+}
+
+/* Stats panel */
+.stats-panel {
+    background-color: rgba(17, 24, 39, 0.8);
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .controls, .settings {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Bar colors */
+.bar-default { background-color: #4f46e5; }
+.bar-compare { background-color: #ef4444; }
+.bar-swap { background-color: #10b981; }
+.bar-sorted { background-color: #f59e0b; }
+.bar-pivot { background-color: #8b5cf6; }
